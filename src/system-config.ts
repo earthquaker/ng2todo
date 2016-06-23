@@ -19,6 +19,9 @@ const packages: any = {
 const materialPkgs:string[] = [
   'core',
   'button',
+  'input',
+  'card',
+  'toolbar',
 ];
 
 materialPkgs.forEach((pkg) => {

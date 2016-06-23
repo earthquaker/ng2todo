@@ -1,14 +1,21 @@
-<h1>
-  {{title}}
-</h1>
+<md-card>
+	<md-card-title>{{title}}</md-card-title>   
+	<md-card-content>
+		<md-input placeholder="New todo (100 max)" maxLength="100" class="demo-full-width" value="To my homework" #newtodo>
+		<md-hint align="end">{{newtodo.characterCount}} / 100</md-hint>
+		</md-input>
+		<button md-raised-button color="primary" (click)="addTodo(newtodo.value)">
+			<md-icon class="md-24">Add</md-icon>
+		</button>
+	</md-card-content>
+</md-card>
 
-<ul *ngFor="let todo of todos | async">
-  <li class="text">
-  	<button md-raised-button (click)="deleteTodo(todo.$key)">Delete</button>
-    <button md-raised-button (click)="update(newtodo.value)">Update</button>
-    {{todo.$value}}
-  </li>
-</ul>
-
-<input type="text" #newtodo placeholder="Todo" />
-<button md-raised-button (click)="addTodo(newtodo.value)">Add</button>
+<md-card>
+	<ul *ngFor="let todo of todos | async">
+	  <li class="text">
+	  	<button md-raised-button color="warn" (click)="deleteTodo(todo.$key)">Delete</button>
+	    <button md-raised-button color="warn" (click)="update(newtodo.value)">Update</button>
+	    {{todo.$value}}
+	  </li>
+	</ul>
+</md-card>
