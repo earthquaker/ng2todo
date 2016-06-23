@@ -1,3 +1,14 @@
 <h1>
   {{title}}
 </h1>
+
+<ul *ngFor="let todo of todos | async">
+  <li class="text">
+  	<button md-raised-button (click)="deleteTodo(todo.$key)">Delete</button>
+    <button md-raised-button (click)="update(newtodo.value)">Update</button>
+    {{todo.$value}}
+  </li>
+</ul>
+
+<input type="text" #newtodo placeholder="Todo" />
+<button md-raised-button (click)="addTodo(newtodo.value)">Add</button>
